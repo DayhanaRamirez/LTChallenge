@@ -1,0 +1,15 @@
+C:\Users\DAYHANARAMIREZMORENO\Documents\LTChallenge\backEndChallenge\backEndChallenge\bin\Debug\net5.0\backEndChallenge.exe
+C:\Users\DAYHANARAMIREZMORENO\Documents\LTChallenge\backEndChallenge\backEndChallenge\bin\Debug\net5.0\backEndChallenge.deps.json
+C:\Users\DAYHANARAMIREZMORENO\Documents\LTChallenge\backEndChallenge\backEndChallenge\bin\Debug\net5.0\backEndChallenge.runtimeconfig.json
+C:\Users\DAYHANARAMIREZMORENO\Documents\LTChallenge\backEndChallenge\backEndChallenge\bin\Debug\net5.0\backEndChallenge.runtimeconfig.dev.json
+C:\Users\DAYHANARAMIREZMORENO\Documents\LTChallenge\backEndChallenge\backEndChallenge\bin\Debug\net5.0\backEndChallenge.dll
+C:\Users\DAYHANARAMIREZMORENO\Documents\LTChallenge\backEndChallenge\backEndChallenge\bin\Debug\net5.0\ref\backEndChallenge.dll
+C:\Users\DAYHANARAMIREZMORENO\Documents\LTChallenge\backEndChallenge\backEndChallenge\bin\Debug\net5.0\backEndChallenge.pdb
+C:\Users\DAYHANARAMIREZMORENO\Documents\LTChallenge\backEndChallenge\backEndChallenge\obj\Debug\net5.0\backEndChallenge.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DAYHANARAMIREZMORENO\Documents\LTChallenge\backEndChallenge\backEndChallenge\obj\Debug\net5.0\backEndChallenge.AssemblyInfoInputs.cache
+C:\Users\DAYHANARAMIREZMORENO\Documents\LTChallenge\backEndChallenge\backEndChallenge\obj\Debug\net5.0\backEndChallenge.AssemblyInfo.cs
+C:\Users\DAYHANARAMIREZMORENO\Documents\LTChallenge\backEndChallenge\backEndChallenge\obj\Debug\net5.0\backEndChallenge.csproj.CoreCompileInputs.cache
+C:\Users\DAYHANARAMIREZMORENO\Documents\LTChallenge\backEndChallenge\backEndChallenge\obj\Debug\net5.0\backEndChallenge.dll
+C:\Users\DAYHANARAMIREZMORENO\Documents\LTChallenge\backEndChallenge\backEndChallenge\obj\Debug\net5.0\ref\backEndChallenge.dll
+C:\Users\DAYHANARAMIREZMORENO\Documents\LTChallenge\backEndChallenge\backEndChallenge\obj\Debug\net5.0\backEndChallenge.pdb
+C:\Users\DAYHANARAMIREZMORENO\Documents\LTChallenge\backEndChallenge\backEndChallenge\obj\Debug\net5.0\backEndChallenge.genruntimeconfig.cache
