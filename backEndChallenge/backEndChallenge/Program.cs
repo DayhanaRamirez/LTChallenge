@@ -14,7 +14,7 @@ namespace backEndChallenge
             Console.WriteLine("1. Sum of multiples");
             Console.WriteLine("2. Find Power number");
             Console.WriteLine("3. Make matriz and sum diagonals");
-            Console.WriteLine("4. ");
+            Console.WriteLine("4. Make program to access a database. (See code)");
             Console.WriteLine("5. Class objects");
             Console.WriteLine("6. Exit");
             Console.WriteLine();
@@ -59,7 +59,37 @@ namespace backEndChallenge
                     break;
 
                 case 4:
-                    // code block
+                    /*
+                    //Method to obtain everything and see the rows details 
+
+	                var result;
+	                using (var context = new TableADBEntities())
+	                {
+   	                result = context.productTable.Where(s => s);
+	                }
+
+	                for (res in result)
+	                {
+    		                Console.WriteLine("Records of table:");
+    		                Console.WriteLine("id_product: " + res.id_product);
+    		                Console.WriteLine("reference: " + res.reference);
+  		                    Console.WriteLine("description: " + res.description); 
+    		                Console.WriteLine("unit: " + res.unit);
+    		                Console.WriteLine("SalePrice: " + res.SalePrice);
+    		                Console.WriteLine("Status: " res.Status)
+	                }
+
+	                //Method to organize by status and description 
+	                var queryGetProductsByStatus =
+  		                from product in productTable
+    		            where product.Status == tmpStatus
+    		            select cust;
+
+	                var queryGetProductsByDescription =
+                        from product in productTable
+    		            where product.description == tmpDescription
+  		                select cust;
+                    */
                     break;
 
                 case 5:

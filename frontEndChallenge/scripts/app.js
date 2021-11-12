@@ -6,7 +6,6 @@ function bringCity(city){
   fetch('https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=23e7bfdd9de307f099cde86dabfe8a88&units=metric')
     .then(response => response.json())
     .then(data => {
-      console.log(data)
       let nameValue = data['name'];
       let tempValue = data['main']['temp'];
       let countryValue = data['sys']['country'];
@@ -16,6 +15,8 @@ function bringCity(city){
 }
 
 function renderCity(name, country, temp){
+  const newImg = calculateTemp(temp);
+  const newP = calculateTempString(temp);
   const card = `<div class="card" id="${name}">
   <span class="close-card" id="${name}-span">x</span>
     <p class="title">${name}, ${country} </p>
@@ -27,9 +28,17 @@ function renderCity(name, country, temp){
           <button class="butt butt-k">K</button>
         </div>
     </div>
+    <div class="image">
+      <img src="${newImg}" alt="">
+      <p class="title">${newP}</p>
+    </div>
     <button class="update">Update</button>
   </div>`;
   document.getElementById("section3").innerHTML += card;
+}
+
+function getImage(temp){
+
 }
 
 /* section 2*/
@@ -51,7 +60,6 @@ async function selectCity(){
   const ciudades = await loadCities(); 
   console.log(ciudades);
   for(const ciudad of ciudades){
-    console.log(ciudad);
     document.getElementById("op").innerHTML += ciudad;
   }
 
@@ -75,7 +83,6 @@ async function selectCity(){
   optionsList.forEach(o => {
     o.addEventListener("click", () => {
       selected.innerHTML = o.querySelector("label").innerHTML;
-      console.log(selected.innerHTML = o.querySelector("label").innerHTML);
       if(!arrayCities.includes(o.querySelector("label").innerHTML)){
         arrayCities.push(o.querySelector("label").innerHTML);
         bringCity(o.querySelector("label").innerHTML);
@@ -103,9 +110,28 @@ async function selectCity(){
 
   window.addEventListener('click', (event)=> {
     const nodoObjetivo = event.target;
+    console.log(nodoObjetivo.classList);
     if(nodoObjetivo.className === 'close-card'){
       deleteCard(nodoObjetivo);
     }
+
+    if(nodoObjetivo.classList.contains('butt-c')){
+      getCelsius(nodoObjetivo);
+    }
+
+    if(nodoObjetivo.classList.contains('butt-f')){
+      getFahrenheit(nodoObjetivo);
+    }
+
+    if(nodoObjetivo.classList.contains('butt-k')){
+      getKelvin(nodoObjetivo);
+    }
+
+    if(nodoObjetivo.classList.contains('update')){
+      update(nodoObjetivo);
+    }
+
+
   });
 }
 
@@ -116,31 +142,104 @@ window.addEventListener('load', function(){
 function deleteCard(target){
       if (target.parentNode) {
         const position = arrayCities.indexOf(target.parentNode);
-        console.log(arrayCities);
         arrayCities.splice(position, 1);
-        console.log(arrayCities);
         target.parentNode.parentNode.removeChild(target.parentNode);
       }
     
 }
 
-function getCelsius(event){
-  if(event.target.className === 'c'){
-  }
+function getCelsius(target){
+    const city = obtainParent(target).getAttribute('id');
+    fetch('https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=23e7bfdd9de307f099cde86dabfe8a88&units=metric')
+      .then(response => response.json())
+      .then(data => {
+        let tempValue = data['main']['temp'];
+        const parent = target.parentNode.parentNode;
+        const parr = parent.children[0];
+        parr.innerHTML = tempValue +'°';
+      })
+    .catch(err => alert("wrong city name"))
+    
+}
+
+function getFahrenheit(target){
+  const city = obtainParent(target).getAttribute('id');
+  fetch('https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=23e7bfdd9de307f099cde86dabfe8a88&units=imperial')
+  .then(response => response.json())
+  .then(data => {
+    let tempValue = data['main']['temp'];
+    const parent = target.parentNode.parentNode;
+    const parr = parent.children[0];
+    parr.innerHTML = tempValue +'°';
+  })
+.catch(err => alert("wrong city name"))
 
 }
 
-function getFahrenheit(event){
-  if(event.target.className === 'f'){
-   
-  }
+function getKelvin(target){
+  const city = obtainParent(target).getAttribute('id');
+  fetch('https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=23e7bfdd9de307f099cde86dabfe8a88')
+  .then(response => response.json())
+  .then(data => {
+    let tempValue = data['main']['temp'];
+    const parent = target.parentNode.parentNode;
+    const parr = parent.children[0];
+    parr.innerHTML = tempValue +'°';
+  })
+.catch(err => alert("wrong city name"))
 
 }
 
-function getKelvin(event){
-  if(event.target.className === 'k'){
-   
+function update(target){
+  const city = target.parentNode.getAttribute('id');
+  console.log(city);
+  fetch('https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=23e7bfdd9de307f099cde86dabfe8a88&units=metric')
+  .then(response => response.json())
+  .then(data => {
+    let tempValue = data['main']['temp'];
+    const parent = target.parentNode;
+    console.log(parent)
+    const parr = parent.children[2].children[0];
+    console.log(parr);
+    parr.innerHTML = tempValue +'°';
+  })
+.catch(err => alert("wrong city name"))
+}
+
+function obtainParent(node){
+  const parent=node.parentNode.parentNode.parentNode;
+  return parent;
+}
+
+function calculateTemp(temp){
+
+  if(temp<19){
+    return "./assets/img/icons/coldWeather.svg";
   }
 
+  if(temp>= 19.1 && temp<=26){
+    return "./assets/img/icons/warmWeather.svg";
+  }
+
+  else{
+    return "./assets/img/icons/hotWeather.svg";
+  }
 }
+
+function calculateTempString(temp){
+
+  if(temp<19){
+    return "Cold";
+  }
+
+  if(temp>= 19.1 && temp<=26){
+    return "Warm";
+  }
+
+  else{
+    return "Hot";
+  }
+}
+
+
 
