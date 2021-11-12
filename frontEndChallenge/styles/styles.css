@@ -88,7 +88,7 @@ body{
   
   .selected::after {
     content: "";
-    background: url("/assets/img/icons/down-arrow.png");
+    background: url("./assets/img/icons/down-arrow.png");
     background-size: contain;
     background-repeat: no-repeat;
   
